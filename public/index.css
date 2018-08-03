@@ -7,15 +7,18 @@ body {
 }
 
 body {
-  align-items: center;
-  display: flex;
   width: 100vw;
   height: 100vh;
-  justify-content: center;
-  text-align: center;
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 h1,
@@ -72,4 +75,13 @@ button:disabled {
 
 .decreased {
   color: #c60606;
+}
+
+svg {
+  overflow: visible;
+  position: absolute;
+  left: 50vw;
+  top: 50vh;
+  width: 50vw;
+  height: 50vh;
 }
