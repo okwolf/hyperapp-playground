@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "Hyperapp v2 playground with FX",
   "scripts": {
+    "prestart": "git submodule init && git submodule update",
     "start": "npx srvs"
   },
   "author": "Wolfgang Wedemeyer <wolf@okwolf.com>",
