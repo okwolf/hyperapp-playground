@@ -1,0 +1,34 @@
+<html>
+
+<link rel="stylesheet" media="all" href="./index.css">
+
+<body>
+  <script type="module">
+    import { app, h } from "./hyperapp";
+    import html from "./html";
+    const { main, h1, button } = html(h)
+    import { Time } from "./fx"
+
+    const UpdateDate = (_, date) =>
+      date.toLocaleString("uk", {
+        hour: "numeric",
+        minute: "numeric",
+        second: "numeric"
+      });
+
+    const TimeSub = Time({
+      every: 100,
+      asDate: true,
+      action: UpdateDate
+    });
+
+    app({
+      init: Time({ now: true, asDate: true, action: UpdateDate }),
+      view: time => main(h1(time)),
+      container: document.body,
+      subscribe: () => [TimeSub]
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<html>
+
+<link rel="stylesheet" media="all" href="./index.css">
+
+<body>
+  <script type="module">
+    import { app, h } from "./hyperapp";
+    import html from "./html";
+    const { main, h1, button } = html(h)
+    import { Keyboard } from "./fx"
+
+    const KeySub = Keyboard({
+      downs: true,
+      ups: true,
+      action: (_, keyEvent) => keyEvent.keyCode
+    });
+
+    app({
+      init: "Press any key...",
+      view: keyCode => main(
+        h1(keyCode)
+      ),
+      subscribe: () => [KeySub],
+      container: document.body
+    });
+  </script>
+</body>
+
+</html>

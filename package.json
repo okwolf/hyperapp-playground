@@ -1,0 +1,10 @@
+{
+  "name": "hav2-playground",
+  "version": "0.0.0",
+  "description": "Hyperapp v2 playground with FX",
+  "scripts": {
+    "start": "npx srvs"
+  },
+  "author": "Wolfgang Wedemeyer <wolf@okwolf.com>",
+  "license": "MIT"
+}
