@@ -161,39 +161,39 @@
       main(
         input({
           type: "range",
-          value: g,
           min: 0.5,
           max: 1,
           step: 0.001,
+          value: g,
           oninput: SetValueFor("g")
         }),
         input({
           type: "range",
-          value: timeScale,
           min: 1,
           max: 200,
+          value: timeScale,
           oninput: SetValueFor("timeScale")
         }),
         input({
           type: "range",
-          value: l1,
           min: 50,
           max: 200,
+          value: l1,
           oninput: SetValueFor("l1")
         }),
         input({
           type: "range",
-          value: l2,
           min: 50,
           max: 200,
+          value: l2,
           oninput: SetValueFor("l2")
         }),
         input({
           type: "range",
-          value: friction,
           min: 0,
           max: 0.01,
           step: 0.0001,
+          value: friction,
           oninput: SetValueFor("friction")
         }),
         svg(
