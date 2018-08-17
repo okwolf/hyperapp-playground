@@ -1,0 +1,24 @@
+<html>
+
+<link rel="stylesheet" media="all" href="./index.css">
+
+<body class="centered">
+  <script type="module">
+    import { app, h } from "./hyperapp";
+    import html from "./html";
+    import { Console } from "./fx"
+    const { main, button } = html(h)
+
+    app({
+      init: {},
+      view: () => main(
+        button({
+          onclick: Console("Console logs support %ccustom styles", "color: blue; font-weight: bold;", { objects: "work too" }),
+        }, "Do the log thing!")
+      ),
+      container: document.body
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,105 @@
+<html>
+
+<link rel="stylesheet" media="all" href="./index.css">
+
+<style>
+  h1 {
+    font-size: 5vw;
+  }
+
+  .container {
+    margin: 10vh;
+  }
+
+  h1,
+  .time-slider {
+    margin: 1vw;
+  }
+</style>
+
+<body class="centered">
+  <script type="module">
+    import { app, h } from "./hyperapp";
+    import html from "./html";
+    import {
+      Debounce,
+      Throttle
+    } from "./fx"
+    const { main, div, h1, input, button } = html(h)
+
+    const initialState = {
+      debounceWait: 1000,
+      debounceCount: 0,
+      throttleRate: 1000,
+      throttleCount: 0
+    };
+
+    const DebounceInc = state => ({
+      ...state,
+      debounceCount: state.debounceCount + 1
+    })
+
+    const DebouncedClick = state => Debounce({
+      wait: state.debounceWait, action: DebounceInc
+    })
+    const ThrottleInc = state => ({
+      ...state,
+      throttleCount: state.throttleCount + 1
+    })
+
+    const ThrottledClick = state => Throttle({
+      rate: state.throttleRate, action: ThrottleInc
+    })
+
+    const SetValueFor = key => (state, { target: { value } }) => ({
+      ...state,
+      [key]: value
+    });
+
+    const view = ({
+      debounceWait,
+      debounceCount,
+      throttleRate,
+      throttleCount
+    }) =>
+      main(
+        div({ class: "container" },
+          h1("Debounce"),
+          div({ class: "time-slider" },
+            input({
+              type: "range",
+              min: 100,
+              max: 2000,
+              value: debounceWait,
+              oninput: SetValueFor("debounceWait")
+            }),
+            debounceWait,
+            "ms"
+          ),
+          button({ onClick: DebouncedClick }, debounceCount)),
+        div({ class: "container" },
+          h1("Throttle"),
+          div({ class: "time-slider" },
+            input({
+              type: "range",
+              min: 100,
+              max: 2000,
+              value: throttleRate,
+              oninput: SetValueFor("throttleRate")
+            }),
+            throttleRate,
+            "ms"
+          ),
+          button({ onClick: ThrottledClick }, throttleCount))
+      )
+
+    app({
+      init: initialState,
+      view,
+      container: document.body,
+    });
+
+  </script>
+</body>
+
+</html>
