@@ -16,10 +16,10 @@
     });
 
     app({
-      init: RollDie,
+      init: [0, RollDie],
       view: dieValue => main(
         h1(dieValue), button({
-          onclick: RollDie,
+          onclick: state => [state, RollDie],
         }, "Roll")
       ),
       subscribe: console.log,

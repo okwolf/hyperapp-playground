@@ -23,7 +23,7 @@
     });
 
     app({
-      init: Time({ now: true, asDate: true, action: UpdateDate }),
+      init: [null, Time({ now: true, asDate: true, action: UpdateDate })],
       view: time => main(h1(time)),
       container: document.body,
       subscribe: () => [TimeSub]

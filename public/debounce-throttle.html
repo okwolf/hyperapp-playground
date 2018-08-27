@@ -39,17 +39,17 @@
       debounceCount: state.debounceCount + 1
     })
 
-    const DebouncedClick = state => Debounce({
+    const DebouncedClick = state => [state, Debounce({
       wait: state.debounceWait, action: DebounceInc
-    })
+    })]
     const ThrottleInc = state => ({
       ...state,
       throttleCount: state.throttleCount + 1
     })
 
-    const ThrottledClick = state => Throttle({
+    const ThrottledClick = state => [state, Throttle({
       rate: state.throttleRate, action: ThrottleInc
-    })
+    })]
 
     const SetValueFor = key => (state, { target: { value } }) => ({
       ...state,

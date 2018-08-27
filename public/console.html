@@ -13,7 +13,7 @@
       init: {},
       view: () => main(
         button({
-          onclick: Console("Console logs support %ccustom styles", "color: blue; font-weight: bold;", { objects: "work too" }),
+          onclick: state => [state, Console("Console logs support %ccustom styles", "color: blue; font-weight: bold;", { objects: "work too" })],
         }, "Do the log thing!")
       ),
       container: document.body
