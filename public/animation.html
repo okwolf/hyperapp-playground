@@ -112,7 +112,7 @@
       )
     ];
 
-    const AnimationSub = [Animation(UpdateAnimation)];
+    const AnimationSub = Animation(UpdateAnimation);
 
     const RandomTimeScale = Random({
       min: 40,
@@ -224,7 +224,7 @@
       init: [initialState, RandomizeInitialState],
       view,
       container: document.body,
-      subscriptions: () => AnimationSub
+      subscriptions: () => [AnimationSub]
     });
 
   </script>
