@@ -47,7 +47,7 @@
           ),
           button({ onClick: state => ({ ...state, paused: !state.paused }) }, paused ? "RESUME" : "PAUSE")
         ),
-      subscribe: ({ paused }) => paused ? [] : [BtcOrderSub],
+      subscriptions: ({ paused }) => paused ? [] : [BtcOrderSub],
       container: document.body
     });
   </script>
