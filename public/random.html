@@ -9,17 +9,17 @@
     import { Random } from "./fx"
     const { main, h1, button } = html(h)
 
-    const RollDie = Random({
+    const RollDie = state => [state, Random({
       min: 1,
       max: 7,
       action: (_, randomIndex) => Math.floor(randomIndex)
-    });
+    })];
 
     app({
-      init: [0, RollDie],
+      init: RollDie,
       view: dieValue => main(
         h1(dieValue), button({
-          onclick: state => [state, RollDie],
+          onclick: RollDie,
         }, "Roll")
       ),
       subscribe: console.log,
