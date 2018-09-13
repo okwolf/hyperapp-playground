@@ -2,6 +2,7 @@
   "name": "hav2-playground",
   "version": "0.0.0",
   "description": "Hyperapp v2 playground with FX",
+  "private": true,
   "scripts": {
     "prestart": "git submodule init && git submodule update",
     "start": "npx srvs"

@@ -1,1 +1,1 @@
-export * from "./fx/src";
+export * from "./hyperapp-fx/src";

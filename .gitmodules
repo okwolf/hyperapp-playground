@@ -1,6 +1,6 @@
 [submodule "src/hyperapp"]
 	path = src/hyperapp
-	url = git@github.com:hyperapp/hyperapp.git
-[submodule "src/fx"]
-	path = src/fx
-	url = git@github.com:hyperapp/fx.git
+	url = git@github.com:jorgebucaran/hyperapp.git
+[submodule "src/hyperapp-fx"]
+	path = src/hyperapp-fx
+	url = git@github.com:okwolf/hyperapp-fx.git
