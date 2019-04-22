@@ -1,6 +1,6 @@
 html,
 body {
-  color: #00caff;
+  color: white;
   background-color: #111;
   font-family: sans-serif;
   margin: 0;
@@ -8,6 +8,9 @@ body {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 100vw;
   height: 100vh;
   line-height: 1;
@@ -15,16 +18,25 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.centered {
+main {
+  text-align: center;
+  overflow-y: auto;
+}
+
+.container {
+  margin-bottom: 4vw;
+}
+
+.top {
+  position: absolute;
+  top: 0;
+}
+
+.control-bar {
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
-}
-
-main {
-  padding: 2vw;
-  text-align: center;
+  margin: 1vw 0;
 }
 
 h1,
@@ -36,6 +48,22 @@ h4 {
 
 h1 {
   font-size: 20vw;
+}
+
+h2 {
+  font-size: 4vw;
+}
+
+h3 {
+  font-size: 3vw;
+}
+
+a {
+  display: block;
+  font-size: 2vw;
+  margin: 1.5vw;
+  text-decoration: none;
+  color: #00caff;
 }
 
 input {

@@ -1,10 +1,14 @@
 {
   "name": "hav2-playground",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Hyperapp v2 playground with FX",
   "private": true,
+  "dependencies": {
+    "hyperapp": "=2.0.0-alpha.10",
+    "hyperapp-fx": "=2.0.0-alpha.4"
+  },
   "scripts": {
-    "prestart": "git submodule init && git submodule update",
+    "format": "npx prettier --write **/*.{js,css,html}",
     "start": "npx srvs"
   },
   "author": "Wolfgang Wedemeyer <wolf@okwolf.com>",
