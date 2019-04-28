@@ -101,25 +101,20 @@ const UpdateAnimation = (state, time) => [
 
 const AnimationSub = Animation(UpdateAnimation);
 
-const RandomTimeScale = Random({
-  min: 40,
-  max: 80,
-  action: (state, timeScale) => ({ ...state, timeScale })
-});
-
-const RandomAngle1 = Random({
+const randomAngleProps = {
   min: Math.PI / 2,
-  max: (3 * Math.PI) / 2,
-  action: (state, a1) => ({ ...state, a1 })
-});
+  max: (3 * Math.PI) / 2
+};
 
-const RandomAngle2 = Random({
-  min: Math.PI / 2,
-  max: (3 * Math.PI) / 2,
-  action: (state, a2) => ({ ...state, a2 })
+const RandomizeInitialState = Random({
+  values: [{ min: 40, max: 80 }, randomAngleProps, randomAngleProps],
+  action: (state, [timeScale, a1, a2]) => ({
+    ...state,
+    timeScale,
+    a1,
+    a2
+  })
 });
-
-const RandomizeInitialState = [RandomTimeScale, RandomAngle1, RandomAngle2];
 
 const SetValueFor = key => (state, { target: { value } }) => ({
   ...state,
@@ -207,7 +202,7 @@ const view = ({
   );
 
 app({
-  init: [initialState, ...RandomizeInitialState],
+  init: [initialState, RandomizeInitialState],
   view,
   container: document.body,
   subscriptions: () => [AnimationSub]
