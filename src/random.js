@@ -7,8 +7,9 @@ const RollDie = state => [
   state,
   Random({
     min: 1,
-    max: 7,
-    action: (_, randomIndex) => Math.floor(randomIndex)
+    max: 6,
+    int: true,
+    action: (_, roll) => roll
   })
 ];
 

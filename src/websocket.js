@@ -17,7 +17,7 @@ const OrderMessage = (state, message) => {
 };
 
 const BtcOrderSubSend = WebSocketSend({
-  url: "wss://ws.pusherapp.com/app/de504dc5763aeef9ff52",
+  url: ORDER_URL,
   data: JSON.stringify({
     event: "pusher:subscribe",
     data: { channel: "live_orders" }
@@ -25,7 +25,7 @@ const BtcOrderSubSend = WebSocketSend({
 });
 
 const BtcOrderSub = WebSocketListen({
-  url: "wss://ws.pusherapp.com/app/de504dc5763aeef9ff52",
+  url: ORDER_URL,
   action: OrderMessage
 });
 

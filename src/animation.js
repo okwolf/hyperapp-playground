@@ -1,5 +1,5 @@
 import { app, h } from "hyperapp";
-import { Animation, Random, BatchFx, Merge } from "hyperapp-fx";
+import { Animation, Random, Merge } from "hyperapp-fx";
 import html from "./html";
 const { main, div, input, svg, path, circle, line } = html(h);
 
@@ -89,16 +89,14 @@ const updateTrail = ({ trailPath, x2, y2 }) => ({
 
 const UpdateAnimation = (state, time) => [
   state,
-  BatchFx(
-    Merge(updateTime(time)),
-    Merge(updateDelta),
-    Merge(updateVelocities),
-    Merge(updateAccelerations),
-    Merge(updateAngles),
-    Merge(updateRod1),
-    Merge(updateRod2),
-    Merge(updateTrail)
-  )
+  Merge(updateTime(time)),
+  Merge(updateDelta),
+  Merge(updateVelocities),
+  Merge(updateAccelerations),
+  Merge(updateAngles),
+  Merge(updateRod1),
+  Merge(updateRod2),
+  Merge(updateTrail)
 ];
 
 const AnimationSub = Animation(UpdateAnimation);
@@ -121,11 +119,7 @@ const RandomAngle2 = Random({
   action: (state, a2) => ({ ...state, a2 })
 });
 
-const RandomizeInitialState = BatchFx(
-  RandomTimeScale,
-  RandomAngle1,
-  RandomAngle2
-);
+const RandomizeInitialState = [RandomTimeScale, RandomAngle1, RandomAngle2];
 
 const SetValueFor = key => (state, { target: { value } }) => ({
   ...state,
@@ -213,7 +207,7 @@ const view = ({
   );
 
 app({
-  init: [initialState, RandomizeInitialState],
+  init: [initialState, ...RandomizeInitialState],
   view,
   container: document.body,
   subscriptions: () => [AnimationSub]
