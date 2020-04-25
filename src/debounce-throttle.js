@@ -1,7 +1,7 @@
 import { app, h } from "hyperapp";
 import { Debounce, Throttle } from "hyperapp-fx";
 import html from "./html";
-const { main, div, h2, input, button } = html(h);
+const { main, div, h3, input, button } = html(h);
 
 const initialState = {
   debounceWait: 1000,
@@ -42,44 +42,38 @@ const SetValueFor = key => (state, { target: { value } }) => ({
 
 const view = ({ debounceWait, debounceCount, throttleRate, throttleCount }) =>
   main(
+    h3("Debounce"),
     div(
-      { class: "container" },
-      h2("Debounce"),
-      div(
-        { class: "control-bar" },
-        input({
-          type: "range",
-          min: 100,
-          max: 2000,
-          value: debounceWait,
-          oninput: SetValueFor("debounceWait")
-        }),
-        debounceWait,
-        "ms"
-      ),
-      button({ onClick: DebouncedClick }, debounceCount)
+      { class: "control-bar" },
+      input({
+        type: "range",
+        min: 100,
+        max: 2000,
+        value: debounceWait,
+        oninput: SetValueFor("debounceWait")
+      }),
+      debounceWait,
+      "ms"
     ),
+    button({ onClick: DebouncedClick }, debounceCount),
+    h3("Throttle"),
     div(
-      { class: "container" },
-      h2("Throttle"),
-      div(
-        { class: "control-bar" },
-        input({
-          type: "range",
-          min: 100,
-          max: 2000,
-          value: throttleRate,
-          oninput: SetValueFor("throttleRate")
-        }),
-        throttleRate,
-        "ms"
-      ),
-      button({ onClick: ThrottledClick }, throttleCount)
-    )
+      { class: "control-bar" },
+      input({
+        type: "range",
+        min: 100,
+        max: 2000,
+        value: throttleRate,
+        oninput: SetValueFor("throttleRate")
+      }),
+      throttleRate,
+      "ms"
+    ),
+    button({ onClick: ThrottledClick }, throttleCount)
   );
 
 app({
   init: initialState,
   view,
-  container: document.body
+  node: document.getElementById("app")
 });

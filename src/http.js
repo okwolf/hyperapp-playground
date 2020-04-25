@@ -1,7 +1,7 @@
 import { app, h } from "hyperapp";
 import { Http } from "hyperapp-fx";
 import html from "./html";
-const { main, input, button, div, h2 } = html(h);
+const { main, input, button, h3 } = html(h);
 
 const SuccessResponse = (state, response) => ({
   ...state,
@@ -38,27 +38,22 @@ app({
   },
   view: ({ response, error, url, fetching }) =>
     main(
-      div(
-        { class: "container" },
-        input({
-          autofocus: true,
-          value: url,
-          disabled: fetching,
-          onInput: UpdateUrl
-        }),
-        button(
-          {
-            onClick: SendHttp
-          },
-          "Send"
-        )
+      input({
+        autofocus: true,
+        value: url,
+        disabled: fetching,
+        onInput: UpdateUrl
+      }),
+      button(
+        {
+          onClick: SendHttp
+        },
+        "Send"
       ),
-      div({ class: "container" }, h2(`Response: ${response}`)),
-      div(
-        { class: "container" },
-        h2(`Error: ${error && (error.statusText || error.message)}`)
-      )
+      h3(`Response: ${response}`),
+
+      h3(`Error: ${error && (error.statusText || error.message)}`)
     ),
-  subscribe: console.log,
-  container: document.body
+  subscriptions: console.log,
+  node: document.getElementById("app")
 });

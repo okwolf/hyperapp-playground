@@ -21,5 +21,5 @@ app({
         "Do the log thing!"
       )
     ),
-  container: document.body
+  node: document.getElementById("app")
 });

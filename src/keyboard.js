@@ -1,7 +1,7 @@
 import { app, h } from "hyperapp";
 import { Keyboard } from "hyperapp-fx";
 import html from "./html";
-const { main, h1 } = html(h);
+const { main, h2 } = html(h);
 
 const KeySub = Keyboard({
   downs: true,
@@ -11,7 +11,7 @@ const KeySub = Keyboard({
 
 app({
   init: "Press any key...",
-  view: keyCode => main(h1(keyCode)),
+  view: keyCode => main(h2(keyCode)),
   subscriptions: () => [KeySub],
-  container: document.body
+  node: document.getElementById("app")
 });

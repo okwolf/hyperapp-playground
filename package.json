@@ -4,12 +4,16 @@
   "description": "Hyperapp v2 playground with FX",
   "private": true,
   "dependencies": {
-    "hyperapp": "=2.0.0-alpha.10",
-    "hyperapp-fx": "=2.0.0-alpha.7"
+    "hyperapp": "=2.0.4",
+    "hyperapp-fx": "=2.0.0-beta.1"
   },
   "scripts": {
     "format": "npx prettier --write **/*.{js,css,html}",
     "start": "npx srvs"
+  },
+  "prettier": {
+    "trailingComma": "none",
+    "arrowParens": "avoid"
   },
   "author": "Wolfgang Wedemeyer <wolf@okwolf.com>",
   "license": "MIT"

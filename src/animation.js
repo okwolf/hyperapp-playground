@@ -204,6 +204,6 @@ const view = ({
 app({
   init: [initialState, RandomizeInitialState],
   view,
-  container: document.body,
-  subscriptions: () => [AnimationSub]
+  subscriptions: () => [AnimationSub],
+  node: document.getElementById("app")
 });

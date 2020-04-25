@@ -24,6 +24,6 @@ const TimeSub = Interval({
 app({
   init: ["", InitialTime],
   view: time => main(h1(time)),
-  container: document.body,
-  subscriptions: () => [TimeSub]
+  subscriptions: () => [TimeSub],
+  node: document.getElementById("app")
 });

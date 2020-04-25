@@ -217,5 +217,5 @@ app({
   init: initialState,
   view,
   subscriptions: ({ paused }) => [!paused && AnimationSub, KeySub],
-  container: document.body
+  node: document.getElementById("app")
 });

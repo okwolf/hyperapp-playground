@@ -3,24 +3,19 @@ import { WebSocketSend, WebSocketListen } from "hyperapp-fx";
 import html from "./html";
 const { main, h1, button } = html(h);
 
-const ORDER_URL = "wss://ws.pusherapp.com/app/de504dc5763aeef9ff52";
+const ORDER_URL = "wss://ws.bitstamp.net";
 
-const OrderMessage = (state, message) => {
-  const data = JSON.parse(message.data);
-  return data.event === "order_created"
-    ? {
-        ...state,
-        lastPrice: state.currentPrice,
-        currentPrice: JSON.parse(data.data).price
-      }
-    : state;
-};
+const OrderMessage = (state, message) => ({
+  ...state,
+  lastPrice: state.currentPrice,
+  currentPrice: JSON.parse(message.data).data.price
+});
 
 const BtcOrderSubSend = WebSocketSend({
   url: ORDER_URL,
   data: JSON.stringify({
-    event: "pusher:subscribe",
-    data: { channel: "live_orders" }
+    event: "bts:subscribe",
+    data: { channel: "live_orders_btcusd" }
   })
 });
 
@@ -54,5 +49,5 @@ app({
       button({ onClick: TogglePaused }, paused ? "RESUME" : "PAUSE")
     ),
   subscriptions: ({ paused } = {}) => (paused ? [] : [BtcOrderSub]),
-  container: document.body
+  node: document.getElementById("app")
 });

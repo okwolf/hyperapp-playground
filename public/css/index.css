@@ -11,14 +11,15 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 100vw;
-  height: 100vh;
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 main {
+  display: flex;
+  flex-direction: column;
+  padding: 0 4vw;
   text-align: center;
   overflow-y: auto;
 }
@@ -48,14 +49,17 @@ h4 {
 
 h1 {
   font-size: 20vw;
+  margin: 4vw 0;
 }
 
 h2 {
-  font-size: 4vw;
+  font-size: 10vw;
+  margin: 2vw 0;
 }
 
 h3 {
-  font-size: 3vw;
+  font-size: 4vw;
+  margin: 1vw 0;
 }
 
 a {

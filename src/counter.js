@@ -1,21 +1,24 @@
 import { app, h } from "hyperapp";
 import html from "./html";
-const { main, h1, button } = html(h);
+const { main, h1, div, button } = html(h);
 
 app({
   init: 0,
   view: count =>
     main(
       h1(count),
-      button(
-        {
-          onclick: count => count - 1,
-          disabled: count <= 0
-        },
-        "ー"
-      ),
-      button({ onclick: count => count + 1 }, "＋")
+      div(
+        { class: "control-bar" },
+        button(
+          {
+            onclick: count => count - 1,
+            disabled: count <= 0
+          },
+          "ー"
+        ),
+        button({ onclick: count => count + 1 }, "＋")
+      )
     ),
-  subscribe: console.log,
-  container: document.body
+  subscriptions: console.log,
+  node: document.getElementById("app")
 });
