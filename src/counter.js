@@ -19,6 +19,5 @@ app({
         button({ onclick: count => count + 1 }, "＋")
       )
     ),
-  subscriptions: console.log,
   node: document.getElementById("app")
 });

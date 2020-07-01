@@ -1,3 +1,5 @@
+import { text } from "hyperapp";
+
 const tags = [
   "a",
   "abbr",
@@ -104,16 +106,19 @@ const tags = [
   "wbr"
 ];
 
+const mapChildren = child =>
+  typeof child === "string" || typeof child === "number" ? text(child) : child;
+
 export default h =>
   tags.reduce(
     (otherTags, tag) => ({
       ...otherTags,
       [tag]: (...args) =>
         typeof args[0] === "object"
-          ? "props" in args[0]
-            ? h(tag, {}, ...args)
-            : h(tag, ...args)
-          : h(tag, {}, ...args)
+          ? typeof args[0].props === "object"
+            ? h(tag, {}, args.map(mapChildren))
+            : h(tag, args[0], args.slice(1).map(mapChildren))
+          : h(tag, {}, args.map(mapChildren))
     }),
     {}
   );

@@ -42,11 +42,11 @@ app({
         autofocus: true,
         value: url,
         disabled: fetching,
-        onInput: UpdateUrl
+        oninput: UpdateUrl
       }),
       button(
         {
-          onClick: SendHttp
+          onclick: SendHttp
         },
         "Send"
       ),
@@ -54,6 +54,5 @@ app({
 
       h3(`Error: ${error && (error.statusText || error.message)}`)
     ),
-  subscriptions: console.log,
   node: document.getElementById("app")
 });

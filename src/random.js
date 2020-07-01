@@ -25,6 +25,5 @@ app({
         "Roll"
       )
     ),
-  subscriptions: console.log,
   node: document.getElementById("app")
 });

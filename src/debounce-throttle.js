@@ -55,7 +55,7 @@ const view = ({ debounceWait, debounceCount, throttleRate, throttleCount }) =>
       debounceWait,
       "ms"
     ),
-    button({ onClick: DebouncedClick }, debounceCount),
+    button({ onclick: DebouncedClick }, debounceCount),
     h3("Throttle"),
     div(
       { class: "control-bar" },
@@ -69,7 +69,7 @@ const view = ({ debounceWait, debounceCount, throttleRate, throttleCount }) =>
       throttleRate,
       "ms"
     ),
-    button({ onClick: ThrottledClick }, throttleCount)
+    button({ onclick: ThrottledClick }, throttleCount)
   );
 
 app({

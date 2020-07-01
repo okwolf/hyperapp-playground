@@ -46,7 +46,7 @@ app({
         },
         currentPrice ? `$${currentPrice.toFixed(2)}` : "Loading..."
       ),
-      button({ onClick: TogglePaused }, paused ? "RESUME" : "PAUSE")
+      button({ onclick: TogglePaused }, paused ? "RESUME" : "PAUSE")
     ),
   subscriptions: ({ paused } = {}) => (paused ? [] : [BtcOrderSub]),
   node: document.getElementById("app")
