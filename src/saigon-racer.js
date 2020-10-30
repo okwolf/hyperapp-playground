@@ -1,16 +1,13 @@
 import { app, h } from "hyperapp";
 import { Animation, Merge, Dispatch, Random, Keyboard } from "hyperapp-fx";
 import html from "./html";
-const { main, img, h1, h2, p, button } = html(h);
-const [road, bike, player] = ["road", "bike", "player"].map(tag =>
-  h.bind(null, tag)
-);
+const { main, img, h1, h2, p, button, div } = html(h);
 const [gear, score, highscore, instructions] = [
   "gear",
   "score",
   "highscore",
   "instructions"
-].map(tag => h.bind(null, tag, {}));
+].map(className => div.bind(null, { className }));
 
 const ROAD_WIDTH = 360;
 const BIKE_WIDTH = 16;
@@ -122,12 +119,10 @@ const UpdateAnimation = (state, time) => {
           recordScore: points > recordScore ? points : recordScore
         }
       : state,
-    [
-      Merge(UpdateTime(time)),
-      Dispatch(AddBikeIfTime),
-      Merge(MovePlayer),
-      Merge(MoveBikes)
-    ]
+    Merge(UpdateTime(time)),
+    Dispatch(AddBikeIfTime),
+    Merge(MovePlayer),
+    Merge(MoveBikes)
   ];
 };
 
@@ -165,37 +160,38 @@ const view = ({
   recordScore
 }) =>
   main(
-    road(
+    div(
       {
+        className: "road",
         style: {
           width: `${roadWidth}px`,
           animationDuration: `${paused ? 0 : MAX_ANIMATION_DURATION / boost}s`
         }
       },
-      [
-        bikes.map(({ x, y, image }) =>
-          bike(
-            {
-              style: { transform: `translate(${x}px, ${y}px)` }
-            },
-            img({ src: image })
-          )
-        ),
-        player(
+      ...bikes.map(({ x, y, image }) =>
+        div(
           {
-            style: {
-              transform: `translate(${playerX}px, ${playerY}px)`
-            }
+            className: "bike",
+            style: { transform: `translate(${x}px, ${y}px)` }
           },
-          img({ src: "images/player.png" })
+          img({ src: image })
         )
-      ]
+      ),
+      div(
+        {
+          className: "player",
+          style: {
+            transform: `translate(${playerX}px, ${playerY}px)`
+          }
+        },
+        img({ src: "images/player.png" })
+      )
     ),
     gear(boost),
     score(points),
     recordScore > 0 && highscore(`${recordScore} Highscore`),
     !started &&
-      instructions([
+      instructions(
         h1("Saigon"),
         h2("Racer"),
         p(`
@@ -210,7 +206,7 @@ const view = ({
           },
           "START RIDING"
         )
-      ])
+      )
   );
 
 app({

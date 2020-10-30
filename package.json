@@ -4,12 +4,12 @@
   "description": "Hyperapp v2 playground with FX",
   "private": true,
   "dependencies": {
-    "hyperapp": "jorgebucaran/hyperapp#minimizations",
+    "hyperapp": "=2.0.8",
     "hyperapp-fx": "=2.0.0-beta.1"
   },
   "scripts": {
     "format": "npx prettier --write **/*.{js,css,html}",
-    "start": "npm i && npx srvs"
+    "start": "npx srvs"
   },
   "prettier": {
     "trailingComma": "none",

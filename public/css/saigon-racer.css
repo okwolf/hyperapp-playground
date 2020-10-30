@@ -36,7 +36,7 @@ main {
   height: 100vh;
 }
 
-road {
+.road {
   position: relative;
   display: block;
   height: 100vh;
@@ -56,8 +56,8 @@ road {
   }
 }
 
-bike,
-player {
+.bike,
+.player {
   display: block;
   position: absolute;
   width: 16px;
@@ -70,16 +70,16 @@ img {
   width: 100%;
 }
 
-gear,
-score,
-highscore {
+.gear,
+.score,
+.highscore {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   font-family: monospace;
 }
 
-gear {
+.gear {
   top: 32px;
   font-size: 64px;
   color: #fff;
@@ -87,7 +87,7 @@ gear {
   text-shadow: 0 4px 0 #000;
 }
 
-score {
+.score {
   bottom: 0;
   bottom: 64px;
   font-size: 32px;
@@ -96,7 +96,7 @@ score {
   background: #121212;
 }
 
-highscore {
+.highscore {
   bottom: 0;
   left: 50%;
   bottom: 32px;
@@ -107,7 +107,7 @@ highscore {
   text-transform: uppercase;
 }
 
-instructions {
+.instructions {
   position: fixed;
   top: 0;
   left: 0;
