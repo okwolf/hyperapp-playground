@@ -4,8 +4,8 @@
   "description": "Hyperapp v2 playground with FX",
   "private": true,
   "dependencies": {
-    "hyperapp": "=2.0.8",
-    "hyperapp-fx": "=2.0.0-beta.1"
+    "hyperapp": "=2.0.12",
+    "hyperapp-fx": "=2.0.0-beta.2"
   },
   "scripts": {
     "format": "npx prettier --write **/*.{js,css,html}",
