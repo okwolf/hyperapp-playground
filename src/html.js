@@ -1,124 +1,16 @@
-import { text } from "hyperapp";
-
-const tags = [
-  "a",
-  "abbr",
-  "address",
-  "area",
-  "article",
-  "aside",
-  "audio",
-  "b",
-  "bdi",
-  "bdo",
-  "blockquote",
-  "br",
-  "button",
-  "canvas",
-  "caption",
-  "circle",
-  "cite",
-  "code",
-  "col",
-  "colgroup",
-  "data",
-  "datalist",
-  "dd",
-  "del",
-  "details",
-  "dfn",
-  "dialog",
-  "div",
-  "dl",
-  "dt",
-  "em",
-  "embed",
-  "fieldset",
-  "figcaption",
-  "figure",
-  "footer",
-  "form",
-  "h1",
-  "h2",
-  "h3",
-  "h4",
-  "h5",
-  "h6",
-  "header",
-  "hr",
-  "i",
-  "iframe",
-  "img",
-  "input",
-  "ins",
-  "kbd",
-  "label",
-  "legend",
-  "li",
-  "line",
-  "main",
-  "map",
-  "mark",
-  "menu",
-  "menuitem",
-  "meter",
-  "nav",
-  "object",
-  "ol",
-  "optgroup",
-  "option",
-  "output",
-  "p",
-  "param",
-  "path",
-  "pre",
-  "progress",
-  "q",
-  "rp",
-  "rt",
-  "rtc",
-  "ruby",
-  "s",
-  "samp",
-  "section",
-  "select",
-  "small",
-  "source",
-  "span",
-  "strong",
-  "sub",
-  "summary",
-  "sup",
-  "svg",
-  "table",
-  "tbody",
-  "td",
-  "textarea",
-  "tfoot",
-  "th",
-  "thead",
-  "time",
-  "tr",
-  "track",
-  "u",
-  "ul",
-  "video",
-  "wbr"
-];
+import { h, text } from "hyperapp";
 
 const mapChildren = child =>
   typeof child === "string" || typeof child === "number" ? text(child) : child;
 
-export default h =>
-  tags.reduce(
-    (otherTags, tag) => ({
-      ...otherTags,
-      [tag]: (...args) =>
-        typeof args[0] === "object"
-          ? typeof args[0].props === "object"
-            ? h(tag, {}, args.map(mapChildren))
-            : h(tag, args[0], args.slice(1).map(mapChildren))
-          : h(tag, {}, args.map(mapChildren))
-    }),
-    {}
-  );
+export default new Proxy(
+  {},
+  {
+    get: (_, tag) => (...args) =>
+      typeof args[0] === "object" &&
+      !Array.isArray(args[0]) &&
+      typeof args[0].props !== "object"
+        ? h(tag, args[0], args.slice(1).map(mapChildren))
+        : h(tag, {}, args.flatMap(mapChildren))
+  }
+);

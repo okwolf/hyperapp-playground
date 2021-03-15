@@ -1,7 +1,7 @@
-import { app, h } from "hyperapp";
+import { app } from "hyperapp";
 import { WebSocketSend, WebSocketListen } from "hyperapp-fx";
 import html from "./html";
-const { main, h1, button } = html(h);
+const { main, h1, button } = html;
 
 const ORDER_URL = "wss://ws.bitstamp.net";
 

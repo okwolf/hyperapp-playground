@@ -1,7 +1,7 @@
-import { app, h } from "hyperapp";
+import { app } from "hyperapp";
 import { Animation, Random, Merge } from "hyperapp-fx";
 import html from "./html";
-const { main, div, input, svg, path, circle, line } = html(h);
+const { main, div, input, svg, path, circle, line } = html;
 
 const initialState = {
   theme: {

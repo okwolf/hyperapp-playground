@@ -1,7 +1,7 @@
-import { app, h } from "hyperapp";
+import { app } from "hyperapp";
 import { Debounce, Throttle } from "hyperapp-fx";
 import html from "./html";
-const { main, div, h3, input, button } = html(h);
+const { main, div, h3, input, button } = html;
 
 const initialState = {
   debounceWait: 1000,

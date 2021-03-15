@@ -1,7 +1,7 @@
-import { app, h } from "hyperapp";
+import { app } from "hyperapp";
 import { Now, Interval } from "hyperapp-fx";
 import html from "./html";
-const { main, h1 } = html(h);
+const { main, h1 } = html;
 
 const UpdateDate = (_, date) =>
   date.toLocaleString("uk", {

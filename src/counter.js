@@ -1,6 +1,6 @@
 import { app, h } from "hyperapp";
 import html from "./html";
-const { main, h1, div, button } = html(h);
+const { main, h1, div, button } = html;
 
 app({
   init: 0,

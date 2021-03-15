@@ -1,7 +1,7 @@
-import { app, h } from "hyperapp";
+import { app } from "hyperapp";
 import { Random } from "hyperapp-fx";
 import html from "./html";
-const { main, h1, button } = html(h);
+const { main, h1, button } = html;
 
 const RollDie = state => [
   state,

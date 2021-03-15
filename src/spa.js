@@ -1,4 +1,4 @@
-import { app, h } from "hyperapp";
+import { app } from "hyperapp";
 import {
   Dispatch,
   Http,
@@ -9,7 +9,7 @@ import {
   RemoveFromStorage
 } from "hyperapp-fx";
 import html from "./html";
-const { main, span, p, button } = html(h);
+const { main, span, p, button } = html;
 
 const loginTokenKey = "loginToken";
 

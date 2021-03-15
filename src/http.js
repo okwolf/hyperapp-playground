@@ -1,7 +1,7 @@
-import { app, h } from "hyperapp";
+import { app } from "hyperapp";
 import { Http } from "hyperapp-fx";
 import html from "./html";
-const { main, input, button, h3 } = html(h);
+const { main, input, button, h3 } = html;
 
 const SuccessResponse = (state, response) => ({
   ...state,

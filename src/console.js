@@ -1,7 +1,7 @@
-import { app, h } from "hyperapp";
+import { app } from "hyperapp";
 import { Console } from "hyperapp-fx";
 import html from "./html";
-const { main, button } = html(h);
+const { main, button } = html;
 
 app({
   init: {},

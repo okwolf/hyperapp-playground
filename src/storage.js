@@ -1,11 +1,11 @@
-import { app, h } from "hyperapp";
+import { app } from "hyperapp";
 import {
   ReadFromStorage,
   WriteToStorage,
   RemoveFromStorage
 } from "hyperapp-fx";
 import html from "./html";
-const { main, input, button } = html(h);
+const { main, input, button } = html;
 
 const storageKey = "storageKey";
 

@@ -1,7 +1,7 @@
-import { app, h } from "hyperapp";
+import { app } from "hyperapp";
 import { Keyboard } from "hyperapp-fx";
 import html from "./html";
-const { main, h2 } = html(h);
+const { main, h2 } = html;
 
 const KeySub = Keyboard({
   downs: true,

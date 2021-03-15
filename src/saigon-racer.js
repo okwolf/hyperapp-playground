@@ -1,7 +1,7 @@
-import { app, h } from "hyperapp";
+import { app } from "hyperapp";
 import { Animation, Merge, Dispatch, Random, Keyboard } from "hyperapp-fx";
 import html from "./html";
-const { main, img, h1, h2, p, button, div } = html(h);
+const { main, img, h1, h2, p, button, div } = html;
 const [gear, score, highscore, instructions] = [
   "gear",
   "score",

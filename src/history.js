@@ -1,7 +1,7 @@
-import { app, h } from "hyperapp";
+import { app } from "hyperapp";
 import { HistoryPush, HistoryPop } from "hyperapp-fx";
 import html from "./html";
-const { main, h2, p, button } = html(h);
+const { main, h2, p, button } = html;
 
 const GetLocationFromHash = () => window.location.hash.substring(1);
 const routes = ["/home", "/login", "/profile"];

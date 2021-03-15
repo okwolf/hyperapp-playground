@@ -1,7 +1,7 @@
-import { app, h } from "./hyperapp";
+import { app } from "hyperapp";
 import { Dispatch, Delay } from "hyperapp-fx";
 import html from "./html";
-const { main, h2, button } = html(h);
+const { main, h2, button } = html;
 
 // implements the proposed chaining API
 const chainFxEffect = (originalDispatch, fx) => {
