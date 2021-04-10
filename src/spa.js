@@ -63,7 +63,7 @@ app({
       token
         ? span(
             `token: ${token}`,
-            ...["home", "profile"].map(name =>
+            ["home", "profile"].map(name =>
               p(button({ onclick: [Navigate, `/${name}`] }, name))
             ),
             button({ onclick: Logout }, "logout")

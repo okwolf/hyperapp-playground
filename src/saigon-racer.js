@@ -168,7 +168,7 @@ const view = ({
           animationDuration: `${paused ? 0 : MAX_ANIMATION_DURATION / boost}s`
         }
       },
-      ...bikes.map(({ x, y, image }) =>
+      bikes.map(({ x, y, image }) =>
         div(
           {
             className: "bike",

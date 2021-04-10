@@ -12,7 +12,7 @@ app({
   view: route =>
     main(
       h2(route || defaultRoute),
-      ...routes.map(name =>
+      routes.map(name =>
         p(
           button(
             {
