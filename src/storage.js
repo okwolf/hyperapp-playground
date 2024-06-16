@@ -12,7 +12,7 @@ const storageKey = "storageKey";
 app({
   init: [
     "",
-    ReadFromStorage({ key: storageKey, action: (_, { value }) => value })
+    ReadFromStorage({ key: storageKey, action: (_, { value }) => value || "" })
   ],
   view: storageValue =>
     main(
